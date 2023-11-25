@@ -1,0 +1,40 @@
+﻿@model List<TarefasModelView>
+
+<h3 class="fw-bolder">Lista de Tarefas</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Tarefa</th>
+            <th scope="col">Status</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @{
+            var cont = 1;
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@cont</td>
+                <td>@item.nomeTarefa</td>
+                <td>
+                    <div class="form-check">
+                        @if (item.checkTarefa)
+                        {
+                            <input class="form-check-input" type="checkbox" value="" checked>
+                        }
+                        else
+                        {
+                            <input class="form-check-input" type="checkbox" value="">
+                        }
+
+                    </div>
+                </td>
+            </tr>
+            cont++;
+        }
+        </tbody>
+</table>
